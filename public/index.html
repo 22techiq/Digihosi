@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Coming Soon</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,231 +10,238 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --primary:#0a84ff;
+  --secondary:#35c8ff;
+  --dark:#04111f;
+}
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Poppins",sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100%;
+  min-height:100%;
 }
 
 body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#071A2C,#0A4E9E,#178BFF);
-    overflow:hidden;
-    position:relative;
+  font-family:"Poppins",sans-serif;
+  background:linear-gradient(135deg,#04111f,#0a4f98,#1588ff);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  overflow-x:hidden;
+  position:relative;
 }
 
-/* Animated background */
+/* Background glow */
 body::before,
 body::after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    filter:blur(80px);
-    animation:float 10s ease-in-out infinite;
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  filter:blur(90px);
+  z-index:0;
 }
 
 body::before{
-    width:280px;
-    height:280px;
-    background:#36CFFF;
-    top:-80px;
-    left:-70px;
+  width:260px;
+  height:260px;
+  background:#39d4ff;
+  top:-80px;
+  left:-80px;
+  animation:float 10s ease-in-out infinite;
 }
 
 body::after{
-    width:320px;
-    height:320px;
-    background:#0D6EFD;
-    bottom:-120px;
-    right:-80px;
-    animation-delay:3s;
+  width:320px;
+  height:320px;
+  background:#006dff;
+  bottom:-100px;
+  right:-100px;
+  animation:float 12s ease-in-out infinite reverse;
 }
 
 @keyframes float{
-    50%{
-        transform:translateY(25px) scale(1.08);
-    }
+  50%{
+    transform:translateY(30px) scale(1.08);
+  }
 }
 
 .card{
-    position:relative;
-    width:92%;
-    max-width:700px;
-    background:rgba(255,255,255,.12);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,.25);
-    border-radius:28px;
-    padding:55px 40px;
-    text-align:center;
-    color:white;
-    box-shadow:0 25px 60px rgba(0,0,0,.35);
+  position:relative;
+  z-index:1;
+  width:min(680px,100%);
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:28px;
+  padding:clamp(28px,5vw,52px);
+  text-align:center;
+  color:#fff;
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
 }
 
 .badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:10px 18px;
-    border-radius:40px;
-    background:rgba(255,255,255,.15);
-    border:1px solid rgba(255,255,255,.2);
-    font-size:.9rem;
-    font-weight:600;
-    margin-bottom:25px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.15);
+  font-size:clamp(.8rem,2vw,.95rem);
+  font-weight:600;
 }
 
 .icon{
-    font-size:65px;
-    margin-bottom:15px;
-    animation:pulse 2s infinite;
+  font-size:clamp(52px,10vw,72px);
+  margin:22px 0 10px;
+  animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
-    50%{
-        transform:scale(1.08);
-    }
+  50%{transform:scale(1.08);}
 }
 
 h1{
-    font-size:2.8rem;
-    font-weight:800;
-    line-height:1.1;
-    margin-bottom:15px;
-}
-
-p{
-    color:rgba(255,255,255,.88);
-    line-height:1.8;
-    font-size:1rem;
-    margin-bottom:35px;
+  font-size:clamp(2rem,6vw,3rem);
+  line-height:1.1;
+  font-weight:800;
+  margin-bottom:14px;
 }
 
 .divider{
-    width:70px;
-    height:4px;
-    background:#6DD5FA;
-    margin:0 auto 35px;
-    border-radius:10px;
+  width:80px;
+  height:4px;
+  margin:0 auto 24px;
+  border-radius:10px;
+  background:linear-gradient(90deg,var(--secondary),#fff);
 }
 
-.contact-box{
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:18px;
-    padding:22px;
+p{
+  color:rgba(255,255,255,.88);
+  line-height:1.8;
+  font-size:clamp(.95rem,2.4vw,1.05rem);
+  margin-bottom:30px;
 }
 
-.contact-box h3{
-    font-size:1.2rem;
-    margin-bottom:8px;
+.contact{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;
+  padding:22px;
 }
 
-.contact-box small{
-    display:block;
-    color:rgba(255,255,255,.75);
-    margin-bottom:20px;
+.contact h3{
+  font-size:1.2rem;
+  margin-bottom:8px;
+}
+
+.contact small{
+  display:block;
+  color:rgba(255,255,255,.72);
+  margin-bottom:18px;
 }
 
 .buttons{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:14px;
 }
 
 .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    text-decoration:none;
-    color:white;
-    background:linear-gradient(135deg,#28A8FF,#006DFF);
-    padding:14px 22px;
-    border-radius:14px;
-    font-weight:600;
-    transition:.3s;
-    box-shadow:0 10px 25px rgba(0,110,255,.35);
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+  padding:14px 18px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--secondary),var(--primary));
+  transition:.3s;
+  box-shadow:0 10px 25px rgba(0,110,255,.35);
 }
 
 .btn:hover{
-    transform:translateY(-4px);
-    box-shadow:0 18px 35px rgba(0,110,255,.5);
+  transform:translateY(-3px);
+  box-shadow:0 18px 35px rgba(0,110,255,.45);
 }
 
 .footer{
-    margin-top:30px;
-    color:rgba(255,255,255,.65);
-    font-size:.9rem;
+  margin-top:24px;
+  color:rgba(255,255,255,.7);
+  font-size:.9rem;
 }
 
 .footer strong{
-    color:white;
+  color:white;
 }
 
-@media(max-width:600px){
-    .card{
-        padding:45px 25px;
-    }
+/* Small phones */
+@media (max-width:480px){
+  body{
+    padding:16px;
+  }
 
-    h1{
-        font-size:2.1rem;
-    }
+  .card{
+    border-radius:22px;
+  }
 
-    .buttons{
-        flex-direction:column;
-    }
+  .contact{
+    padding:18px;
+  }
 
-    .btn{
-        justify-content:center;
-    }
+  .btn{
+    padding:13px;
+  }
+}
+
+/* Very short screens */
+@media (max-height:650px){
+  body{
+    align-items:flex-start;
+    padding-top:24px;
+    padding-bottom:24px;
+  }
 }
 </style>
 </head>
-
 <body>
 
 <div class="card">
 
-    <div class="badge">🚧 Page Coming Soon</div>
+  <div class="badge">🚧 Page Coming Soon</div>
 
-    <div class="icon">✨</div>
+  <div class="icon">✨</div>
 
-    <h1>We're Building Something Exceptional</h1>
+  <h1>We're Building Something Exceptional</h1>
 
-    <div class="divider"></div>
+  <div class="divider"></div>
 
-    <p>
-        This page is currently under development as new functionality is being
-        designed, tested, and refined. Every section is being carefully crafted
-        to deliver a polished experience before it officially goes live.
-    </p>
+  <p>
+    This page is currently under development as new functionality is being
+    designed, tested, and refined. Every section is carefully crafted to
+    deliver a polished experience before it officially goes live.
+  </p>
 
-    <div class="contact-box">
-        <h3>Reach the Developer</h3>
-        <small>Need an update or have a development inquiry? Get in touch directly.</small>
+  <div class="contact">
+    <h3>Reach the Developer</h3>
+    <small>Need an update or have a development inquiry? Get in touch directly.</small>
 
-        <div class="buttons">
-            <a href="https://wa.me/254751828300" class="btn" target="_blank">
-                💬 WhatsApp
-            </a>
-
-            <a href="tel:+254751828300" class="btn">
-                📞 Call
-            </a>
-
-            <a href="mailto:mc.owino254@gmail.com" class="btn">
-                ✉️ Email
-            </a>
-        </div>
+    <div class="buttons">
+      <a href="https://wa.me/254751828300" class="btn">💬 WhatsApp</a>
+      <a href="tel:+254751828300" class="btn">📞 Call</a>
+      <a href="mailto:mcowino.dev@gmail.com" class="btn">✉️ Email</a>
     </div>
+  </div>
 
-    <div class="footer">
-        Designed & Developed by <strong>McOwino</strong>
-    </div>
+  <div class="footer">
+    Designed & Developed by <strong>McOwino</strong>
+  </div>
 
 </div>
 
